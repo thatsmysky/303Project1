@@ -22,13 +22,15 @@ using namespace std;
 
 class polynomial
 {
-public:
-    polynomial() {poly.assign(1, 0);};
-    polynomial(Term t) {poly.assign(1, t);};
-    void sort();
-    ~polynomial();
-    friend polynomial operator+ (const polynomial& other);
-    friend ostream &operator<<(ostream &out, polynomial& poly);
 private:
     list<Term> poly;
+    Term newTerm;
+    
+public:
+    polynomial() {poly.push_front(newTerm);};
+    polynomial(Term t) {poly.assign(1, t);};
+    ~polynomial();
+    list<Term> operator+ (list<Term> &other);
+    friend ostream &operator<<(ostream &out, list<Term> &poly);
 };
+
