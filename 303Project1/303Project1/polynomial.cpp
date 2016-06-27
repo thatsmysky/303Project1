@@ -3,10 +3,29 @@
 //
 
 #include "polynomial.hpp"
+#include <iostream>
 using namespace std;
 
-void sort(list<Term> &poly);
-~polynomal();
-friend operator+ (const polynomial& other);
-friend ostream &operator<<(ostream &out, polynomial& poly);
-friend istream &operator>>(istream &in, polynomial& poly);
+void polynomial::sort()
+{
+    
+}
+
+polynomial operator+ (const polynomial& other)
+{
+    other.sort();
+}
+
+ostream &operator<<(ostream &out, polynomial& poly)
+{
+    for (list<Term>::iterator i = poly.begin(); i != poly.end(); i++)
+    {
+        out << *i;
+    }
+}
+
+
+polynomial::~polynomial()
+{
+    poly.~list();
+}
