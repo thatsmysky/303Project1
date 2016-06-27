@@ -13,13 +13,15 @@ using namespace std;
 class Term
 {
 	friend bool operator<(const Term& lhs, const Term& rhs); //for comparing lhs < rhs exponents
+	friend bool operator>(const Term& lhs, const Term& rhs); //for comparing lhs > rhs exponents
+	friend bool operator==(const Term& lhs, const Term& rhs); //for comparing lhs == rhs exponents
 	friend ostream& operator<<(ostream& ostr, Term& term);		//for outputting the Term to cout
 
 private:
-	int coe, exp;        // data - coefficient and exponent
-	
+	//none
 
 public:
+	int coe, exp;        // data - coefficient and exponent
 
 
 	Term();		//default constructor
