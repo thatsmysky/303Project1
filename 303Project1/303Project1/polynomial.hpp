@@ -24,9 +24,12 @@ class polynomial
 {
 public:
     polynomial() {poly.assign(1, 0);};
-    polynomial(Term t) {poly.assign(1, t););
+    polynomial(Term t) {poly.assign(1, t);};
+    void sort(list<Term> &poly);
     ~polynomal();
-    polynomial operator+ (const polynomial& other);
+    friend operator+ (const polynomial& other);
+    friend ostream &operator<<(ostream &out, polynomial& poly);
+    friend istream &operator>>(istream &in, polynomial& poly);
 private:
     list<Term> poly;
 };
