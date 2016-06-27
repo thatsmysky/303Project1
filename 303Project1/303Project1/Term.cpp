@@ -35,8 +35,6 @@ ostream& operator<<(ostream& ostr, Term& term) {		//for outputting Term to cout
 }
 
 
-Term::Term(int arg1, int arg2) :coe(arg1), exp(arg2), next(NULL) {}
-
 Term::Term() {		//default constructor
 	coe = 0;
 	exp = 0;
