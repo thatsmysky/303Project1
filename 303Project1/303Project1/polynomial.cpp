@@ -96,11 +96,11 @@ polynomial polynomial::operator+ (polynomial &other)
 
 ostream &operator<<(ostream &out, polynomial &poly)
 {
-    for (Term *i = poly.head; i != NULL; i = i->next)
+    for (Term *i = poly.head; i->next != NULL; i = i->next)
     {
         out << *i;
         if (i->next->next != NULL)
-            out<< " + ";
+            out<< "+ ";
     }
     return out;
 }
