@@ -146,13 +146,10 @@ void polynomial::push_back(Term &t)
 void polynomial::clear()
 {
     Term *temp;
-    temp = head;
-    bool full = true;
-    while (full)
+    while (head)
     {
+        temp = head;
         head = temp->next;
-        if (temp->next == NULL)
-            full = false;
         delete temp;
     }
 }
