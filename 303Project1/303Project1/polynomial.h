@@ -39,5 +39,9 @@ public:
         
     //overloaded output stream
     friend ostream &operator<<(ostream &out, polynomial &poly);
+    
+    //clear function for cleaning
+    void clear(polynomial &p);
+
 };
 
