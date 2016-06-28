@@ -2,20 +2,23 @@
 //  polynomial.cpp
 //
 
-#include "polynomial.hpp"
+#include "polynomial.h"
 #include <iostream>
 using namespace std;
 
-
+//default constructor
 polynomial::polynomial()
 {
+    //initialize everything to 0/NULL
     head->coe = 0;
     head->exp = 0;
     head->next = NULL;
 }
 
+//secondary constructor
 polynomial::polynomial(Term t)
 {
+    //initializes polynomial to Term specifications
     head->setCoe(t.getCoe());
     head->exp = t.getExp();
     head->next = NULL;
