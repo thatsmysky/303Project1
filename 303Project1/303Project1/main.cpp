@@ -1,7 +1,7 @@
 // 303 Project 1
 // user menu and main
 
-#include "polynomial.hpp"
+#include "polynomial.h"
 #include "Term.h"
 #include <iostream>
 #include <list>
@@ -27,18 +27,18 @@ bool processMenu(polynomial &polynomial1, polynomial &polynomial2, polynomial &f
     // enter polynomials, displays user entered polynomials for review
     // if user input correct return to main menu, if incorrect allow user to reenter polynomials
     if (choice1=='1') {
-        cout << "Enter first polynomial: ";
+        cout << "First polynomial " << endl;
         while (loopy != true){ // bool for menu options
-            cout << "Enter a coefficent: " << endl;
+            cout << "Enter a coefficent: ";
             cin >> polycoef;
-            cout << "Enter an exponent: " << endl;
+            cout << "Enter an exponent: ";
             cin >> polyexp;
             
             temp = Term(polycoef, polyexp);
             polynomial temp1 = polynomial(temp);
             polynomial1 = polynomial1 + temp1;
             
-            cout << "Enter another term in the polynomial? ";
+            cout << "Enter another term in the polynomial? " << endl;
             cout << "(Y)es" << endl;
             cout << "(N)o" << endl;
             cout << "Please enter Y or N: ";
@@ -54,20 +54,19 @@ bool processMenu(polynomial &polynomial1, polynomial &polynomial2, polynomial &f
             } }
         
         
-        loopy = true;
-        cout << "Enter second polynomial: ";
+        loopy = false;
+        cout << "Second Polynomial " << endl;
         while (loopy != true){ // bool for menu options
-            cout << "Enter a coefficent: " << endl;
+            cout << "Enter a coefficent: ";
             cin >> polycoef;
-            cout << "Enter an exponent: " << endl;
+            cout << "Enter an exponent: ";
             cin >> polyexp;
             
             temp = Term(polycoef, polyexp);
-            
             polynomial temp2 = polynomial(temp);
             polynomial2 = polynomial2 + temp2;
             
-            cout << "Enter another term in the polynomial? ";
+            cout << "Enter another term in the polynomial? " << endl;
             cout << "(Y)es" << endl;
             cout << "(N)o" << endl;
             cout << "Please enter Y or N: ";
@@ -81,6 +80,7 @@ bool processMenu(polynomial &polynomial1, polynomial &polynomial2, polynomial &f
             } else {
                 loopy = true;
             } }
+        
         return false;
         
         // adds both polynomials and displays result
@@ -104,7 +104,7 @@ bool processMenu(polynomial &polynomial1, polynomial &polynomial2, polynomial &f
 }
 
 int main () {
-        
+    
     // strings to hold polynomials to be added and sum
     polynomial polynomial1, polynomial2, finalPoly;
     
