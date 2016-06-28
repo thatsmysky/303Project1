@@ -41,7 +41,7 @@ public:
     friend ostream &operator<<(ostream &out, polynomial &poly);
     
     //clear function for cleaning
-    void clear(polynomial &p);
+    void clear();
 
 };
 
