@@ -112,7 +112,7 @@ ostream &operator<<(ostream &out, polynomial &poly)
     do
     {
         out << *i;
-        if (i->next != NULL && i->next->coe > 0)
+        if (i->next != NULL && i->next->coe > 0 && i->coe != 0)
             out << "+ ";
         else if (i->next != NULL && i->next->coe < 0)
             out << "- ";
