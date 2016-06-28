@@ -29,7 +29,7 @@ bool operator==(const Term& lhs, const Term& rhs) {		//compares lhs == rhs expon
 
 ostream& operator<<(ostream& ostr, Term& term) {		//for outputting Term to cout
 	if (term.coe == 0) return ostr << "";		//do not display terms with 0 coefficients
-	if (abs(term.coe) != 1); ostr << abs(term.coe);	//polynomial class ostream should look at - and makes + into -
+	if (abs(term.coe) != 1) ostr << abs(term.coe);	//polynomial class ostream should look at - and makes + into -
 	if (term.exp != 0) ostr << "x";				//don not display x for 0 exponents
 	if (term.exp != 0 && term.exp != 1) ostr << "^" << term.exp;		//do not display ^ and exponent for 0 or 1 exponets
 	ostr << " ";		//space before next term
