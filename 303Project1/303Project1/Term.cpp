@@ -29,13 +29,12 @@ bool operator==(const Term& lhs, const Term& rhs) {		//compares lhs == rhs expon
 
 ostream& operator<<(ostream& ostr, Term& term) {		//for outputting Term to cout
 	if (term.coe == 0) return ostr << "";		//do not display terms with 0 coefficients
-	if (term.coe != 1); ostr << term.coe;
+	if (term.coe != 1); ostr << abs(term.coe);
 	if (term.exp != 0) {
 		ostr << "x";
-		if (term.exp != 1) ostr << "^" << term.exp << " ";
-		else ostr << " ";
-	}
-	return ostr;		//outputs "_x^_ "
+		if (term.exp != 1) ostr << "^" << term.exp;
+		}
+	return ostr << " ";		//outputs "_x^_ "
 	//remember to remove - sign and change + to - for negative numbers on polynomial output
 }
 
