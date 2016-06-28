@@ -109,15 +109,19 @@ ostream &operator<<(ostream &out, polynomial &poly)
 {
     //iterates through the list and outputs the term as needed
     Term *i = poly.head;
+    if (i->coe < 0)
+        out << "-";
     do
     {
         out << *i;
-        if (i->next != NULL && i->next->coe > 0 && i->coe != 0)
+        if (i->coe == 0)
+            out <<"";
+        else if (i->next != NULL && i->next->coe > 0)
             out << "+ ";
         else if (i->next != NULL && i->next->coe < 0)
             out << "- ";
         i = i->next;
-    }while(i);
+    }while(i != NULL);
     return out;
 }
 
