@@ -23,14 +23,23 @@ using namespace std;
 class polynomial
 {
 private:
-    list<Term> poly;
-    Term newTerm;
     
 public:
-    polynomial() {poly.push_front(newTerm);};
-    polynomial(Term t) {poly.assign(1, t);};
-    ~polynomial();
-    list<Term> operator+ (list<Term> &other);
-    friend ostream &operator<<(ostream &out, list<Term> &poly);
+    Term *head = new Term;
+    
+    //default constructor
+    polynomial();
+    
+    //suplemental constructor just in case
+    polynomial(Term t);
+    
+    //push back a Term onto the list of terms
+    void push_back(Term &t);
+        
+    //overloaded assignment opperator
+    polynomial operator+ (polynomial &other);
+        
+    //overloaded output stream
+    friend ostream &operator<<(ostream &out, polynomial &poly);
 };
 
