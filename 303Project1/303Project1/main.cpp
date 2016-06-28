@@ -97,9 +97,9 @@ bool processMenu(polynomial &polynomial1, polynomial &polynomial2, polynomial &f
         cout << "The result is: " << finalPoly << endl;
         
         //Clear polys
-        polynomial1.clear(polynomial1);
-        polynomial2.clear(polynomial2);
-        finalPoly.clear(finalPoly);
+        polynomial1.clear();
+        polynomial2.clear();
+        finalPoly.clear();
         
         system("Pause");
         return false; // return to main menu
