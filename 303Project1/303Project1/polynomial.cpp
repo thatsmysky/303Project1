@@ -1,4 +1,4 @@
-//
+//  Lucy Kull
 //  polynomial.cpp
 //
 
@@ -6,7 +6,8 @@
 #include <iostream>
 using namespace std;
 
-//default constructor
+//default constructor//
+
 polynomial::polynomial()
 {
     //initialize everything to 0/NULL
@@ -15,7 +16,8 @@ polynomial::polynomial()
     head->next = NULL;
 }
 
-//secondary constructor
+//secondary constructor//
+
 polynomial::polynomial(Term t)
 {
     //initializes polynomial to Term specifications
@@ -25,26 +27,27 @@ polynomial::polynomial(Term t)
 }
 
 
+//overloaded addition operator//
 
 polynomial polynomial::operator+ (polynomial &other)
 {
-    polynomial result;
-    Term *polyIndex = head;
-    Term *otherIndex = other.head;
-    while (polyIndex != NULL && otherIndex != NULL)
+    polynomial result;  //output vairable
+    Term *polyIndex = head;  //lhs variable
+    Term *otherIndex = other.head;  //rhs variable
+    while (polyIndex != NULL && otherIndex != NULL) //while both polynomials exist
     {
-        if (result.head->getExp() == 0 && result.head->getExp() == 0)
+        if (result.head->getExp() == 0 && result.head->getExp() == 0) //if the result is initialized and 'empty'
         {
-            if (polyIndex->getExp() > otherIndex->getExp())
+            if (polyIndex->getExp() > otherIndex->getExp()) //lhs exponent > rhs exponent
             {
                 result.head->setCoe(polyIndex->getCoe());
                 result.head->setExp(polyIndex->getExp());
                 polyIndex = polyIndex->next;
             }
             
-            else if (polyIndex->getExp() == otherIndex->getExp())
+            else if (polyIndex->getExp() == otherIndex->getExp()) //lhs exponent = rhs exponent
             {
-                int buff = polyIndex->getCoe() + otherIndex->getCoe();
+                int buff = polyIndex->getCoe() + otherIndex->getCoe(); //add coefs
                 int ffer = polyIndex->getExp();
                 result.head->setCoe(buff);
                 result.head->setExp(ffer);
@@ -52,13 +55,15 @@ polynomial polynomial::operator+ (polynomial &other)
                 otherIndex = otherIndex->next;
             }
             
-            else
+            else //rhs exponent > lhs exponent
             {
                 result.head->setCoe(otherIndex->getCoe());
                 result.head->setExp(otherIndex->getExp());
                 otherIndex = otherIndex->next;
             }
         }
+        
+        //one polynomial is empty and the other is not:
         
         if ((polyIndex != NULL && otherIndex != NULL) &&(polyIndex->getExp() > otherIndex->getExp()))
         {
@@ -97,8 +102,12 @@ polynomial polynomial::operator+ (polynomial &other)
     return result;
 }
 
+
+//overloaded output operator//
+
 ostream &operator<<(ostream &out, polynomial &poly)
 {
+    //iterates through the list and outputs the term as needed
     for (Term *i = poly.head; i->next != NULL; i = i->next)
     {
         out << *i;
@@ -107,6 +116,8 @@ ostream &operator<<(ostream &out, polynomial &poly)
     }
     return out;
 }
+
+//overloaded push-back operator//
 
 void polynomial::push_back(Term &t)
 {
