@@ -112,7 +112,9 @@ ostream &operator<<(ostream &out, polynomial &poly)
     {
         out << *i;
         if (i->next->next != NULL && i->next->coe != 0)
-            out<< "+ ";
+            out << "+ ";
+        else if (i->next->next != NULL && i->next->coe < 0)
+            out << "- ";
     }
     return out;
 }
@@ -135,5 +137,22 @@ void polynomial::push_back(Term &t)
             return;
         }
         curr = curr->next;
+    }
+}
+
+
+//clear function for clearing//
+
+void polynomial::clear(polynomial &p)
+{
+    Term *temp;
+    temp = p.head;
+    bool full = true;
+    while (full)
+    {
+        p.head = temp->next;
+        if (temp->next == NULL)
+            full = false;
+        delete temp;
     }
 }
