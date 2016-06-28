@@ -1,5 +1,5 @@
 //
-//  polynomial.hpp
+//  polynomial.h
 //  a polynomial is a linked list of Terms
 //  Term -> Term -> Term
 //  x^2 -> 2x -> 4
@@ -22,8 +22,6 @@ using namespace std;
 
 class polynomial
 {
-private:
-    
 public:
     Term *head = new Term;
     
