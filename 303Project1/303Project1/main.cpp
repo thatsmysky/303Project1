@@ -88,6 +88,8 @@ bool processMenu(polynomial &polynomial1, polynomial &polynomial2, polynomial &f
         cout << "Adding polynomials" << endl;
         finalPoly = polynomial1 + polynomial2;
         cout << "The result is: " << finalPoly << endl;
+        system("Pause");
+        return false;
         
         // exit command
     } else if (choice1=='3') {
@@ -112,6 +114,6 @@ int main () {
     while (!processMenu(polynomial1, polynomial2, finalPoly)) {
     }
     
-    
+    system("Pause");
     return 0;
 }
