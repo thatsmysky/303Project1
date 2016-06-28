@@ -93,7 +93,13 @@ bool processMenu(polynomial &polynomial1, polynomial &polynomial2, polynomial &f
         
         // exit command
     } else if (choice1=='3') {
-        cout << "Now Exiting Program." << endl;
+        list <string> listy;
+        listy.push_back("Now");
+        listy.push_back("Exiting");
+        listy.push_back("Program");
+        for(list<string>::const_iterator requiredIter = listy.begin(), end=listy.end(); requiredIter != end; ++requiredIter){
+            cout << *requiredIter + " ";
+        }
         
         // if any other user input is entered, give error message and redisplay main menu options
     } else {
