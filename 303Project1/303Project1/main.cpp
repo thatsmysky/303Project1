@@ -1,5 +1,8 @@
-// 303 Project 1
-// user menu and main
+// 303 Project 1B
+// June 28th, 2016
+// John Buckley
+
+// User menu and main
 
 #include "polynomial.h"
 #include "Term.h"
@@ -94,9 +97,9 @@ bool processMenu(polynomial &polynomial1, polynomial &polynomial2, polynomial &f
         cout << "The result is: " << finalPoly << endl;
         
         //Clear polys
-        polynomial.clear(polynomial1);
-        polynomial.clear(polynomial2);
-        polynomial.clear(finalPoly);
+        polynomial1.clear(polynomial1);
+        polynomial2.clear(polynomial2);
+        finalPoly.clear(finalPoly);
         
         system("Pause");
         return false; // return to main menu
@@ -105,7 +108,8 @@ bool processMenu(polynomial &polynomial1, polynomial &polynomial2, polynomial &f
         // exit user menu and program
     } else if (choice1=='3') {
        
-        // 
+        // Creates list that displays exit prompt
+        // uses iterator to go through list
         list <string> listy;
         listy.push_back("Now");
         listy.push_back("Exiting");
@@ -120,16 +124,16 @@ bool processMenu(polynomial &polynomial1, polynomial &polynomial2, polynomial &f
         return false;
     }
     
-    return true;
+    return true; // Exit menu and program
     
 }
 
 int main () {
     
-    // strings to hold polynomials to be added and sum
+    // polynomials used for edition
     polynomial polynomial1, polynomial2, finalPoly;
     
-    // loop until the menu is processed or user is finished
+    // loop until the menu is processed / user is finished
     while (!processMenu(polynomial1, polynomial2, finalPoly)) {
     }
     
