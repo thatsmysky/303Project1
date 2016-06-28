@@ -17,23 +17,24 @@ bool processMenu(polynomial &polynomial1, polynomial &polynomial2, polynomial &f
     cout << "(3) Exit" << endl;
     cout << "Please Enter a Number: ";
     
-    // response variables
+    // response variables for varius menu inputs
     char choice1, exit1, exit2;
     int polycoef, polyexp;
     Term temp;
     bool loopy = false;
     cin >> choice1;
     
-    // enter polynomials, displays user entered polynomials for review
-    // if user input correct return to main menu, if incorrect allow user to reenter polynomials
+    // user choice 1
+    // enter polynomial 1 and 2, force user to enter coefficents and exponents
     if (choice1=='1') {
         cout << "First polynomial " << endl;
-        while (loopy != true){ // bool for menu options
+        while (loopy != true){ // bool for menu options, loop until user enters n or N
             cout << "Enter a coefficent: ";
             cin >> polycoef;
             cout << "Enter an exponent: ";
             cin >> polyexp;
             
+            // use coefficent and exponents to create term and add term to polynomial
             temp = Term(polycoef, polyexp);
             polynomial temp1 = polynomial(temp);
             polynomial1 = polynomial1 + temp1;
@@ -53,15 +54,16 @@ bool processMenu(polynomial &polynomial1, polynomial &polynomial2, polynomial &f
                 loopy = true;
             } }
         
-        
+        // after user enters n or N, user enters coefficents and exponents for second polynomial
         loopy = false;
         cout << "Second Polynomial " << endl;
-        while (loopy != true){ // bool for menu options
+        while (loopy != true){ // bool for menu options, loop until user enters n or N
             cout << "Enter a coefficent: ";
             cin >> polycoef;
             cout << "Enter an exponent: ";
             cin >> polyexp;
             
+            // use coefficent and exponents to create term and add term to polynomial
             temp = Term(polycoef, polyexp);
             polynomial temp2 = polynomial(temp);
             polynomial2 = polynomial2 + temp2;
@@ -81,18 +83,29 @@ bool processMenu(polynomial &polynomial1, polynomial &polynomial2, polynomial &f
                 loopy = true;
             } }
         
-        return false;
+        return false; // back to main menu
         
-        // adds both polynomials and displays result
+        // user choice 2
+        // adds polynomial1 and polynomial2, stores value in polynomial called finalPoly, displays finalPoly
+        // also clears polynomial1, polynomial2, and finalPoly so user can add as many polynomials as they want
     } else if (choice1=='2') {
         cout << "Adding polynomials" << endl;
         finalPoly = polynomial1 + polynomial2;
         cout << "The result is: " << finalPoly << endl;
-        system("Pause");
-        return false;
         
-        // exit command
+        //Clear polys
+        polynomial.clear(polynomial1);
+        polynomial.clear(polynomial2);
+        polynomial.clear(finalPoly);
+        
+        system("Pause");
+        return false; // return to main menu
+        
+        // user choice 3
+        // exit user menu and program
     } else if (choice1=='3') {
+       
+        // 
         list <string> listy;
         listy.push_back("Now");
         listy.push_back("Exiting");
