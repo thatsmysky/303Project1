@@ -143,14 +143,14 @@ void polynomial::push_back(Term &t)
 
 //clear function for clearing//
 
-void polynomial::clear(polynomial &p)
+void polynomial::clear()
 {
     Term *temp;
-    temp = p.head;
+    temp = head;
     bool full = true;
     while (full)
     {
-        p.head = temp->next;
+        head = temp->next;
         if (temp->next == NULL)
             full = false;
         delete temp;
