@@ -108,14 +108,16 @@ polynomial polynomial::operator+ (polynomial &other)
 ostream &operator<<(ostream &out, polynomial &poly)
 {
     //iterates through the list and outputs the term as needed
-    for (Term *i = poly.head; i->next != NULL; i = i->next)
+    Term *i = poly.head;
+    do
     {
         out << *i;
-        if (i->next->next != NULL && i->next->coe != 0)
+        if (i->next != NULL && i->next->coe > 0)
             out << "+ ";
-        else if (i->next->next != NULL && i->next->coe < 0)
+        else if (i->next != NULL && i->next->coe < 0)
             out << "- ";
-    }
+        i = i->next;
+    }while(i);
     return out;
 }
 
