@@ -111,7 +111,7 @@ ostream &operator<<(ostream &out, polynomial &poly)
     for (Term *i = poly.head; i->next != NULL; i = i->next)
     {
         out << *i;
-        if (i->next->next != NULL)
+        if (i->next->next != NULL && i->next->coe != 0)
             out<< "+ ";
     }
     return out;
