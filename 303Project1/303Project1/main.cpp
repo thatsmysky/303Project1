@@ -118,12 +118,12 @@ bool processMenu(polynomial &polynomial1, polynomial &polynomial2, polynomial &f
             cout << *requiredIter + " ";
         }
         
-        // if any other user input is entered, give error message and redisplay main menu options
+    // if any other user input is entered, give error message and redisplay main menu options
     } else {
         cout << "Your input was not valid, please try again." << endl;
         return false;
-    }
-    
+}
+
     return true; // Exit menu and program
     
 }
@@ -137,6 +137,7 @@ int main () {
     while (!processMenu(polynomial1, polynomial2, finalPoly)) {
     }
     
+    cout << "Created by John Buckley, Lucy Kull, and Jeremy Culbreath" << endl;
     system("Pause");
     return 0;
 }
